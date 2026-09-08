@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRAPBOSS 5.0 - Official Squad</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Iconlar -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #0a0a0f;
+            --card-bg: rgba(20, 20, 35, 0.75);
+            --omer-glow: #ffd700;
+            --yavuz-glow: #00f3ff;
+            --erhan-glow: #ff007f;
+            --ahmet-glow: #ff3333;
+            --kadri-glow: #00ff66;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(255, 0, 127, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(0, 243, 255, 0.15) 0%, transparent 40%);
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .brand-title {
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 2px;
+        }
+
+        /* Hero Banner */
+        .hero-section {
+            padding: 60px 20px 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .main-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #ff007f, #00f3ff, #ffd700, #00ff66);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 6s ease infinite;
+            filter: drop-shadow(0 0 15px rgba(0,243,255,0.4));
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Neon Işıltılı Kartlar */
+        .boss-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            padding: 30px 20px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .boss-card:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        /* İsim Özel Işıltıları (Glow Effects) */
+        .glow-omer {
+            color: var(--omer-glow);
+            text-shadow: 0 0 10px var(--omer-glow), 0 0 20px var(--omer-glow), 0 0 40px #ff8c00;
+        }
+        .card-omer:hover {
+            border-color: var(--omer-glow);
+            box-shadow: 0 0 35px rgba(255, 215, 0, 0.4);
+        }
+
+        .glow-yavuz {
+            color: var(--yavuz-glow);
+            text-shadow: 0 0 10px var(--yavuz-glow), 0 0 20px var(--yavuz-glow), 0 0 40px #0077ff;
+        }
+        .card-yavuz:hover {
+            border-color: var(--yavuz-glow);
+            box-shadow: 0 0 35px rgba(0, 243, 255, 0.4);
+        }
+
+        .glow-erhan {
+            color: var(--erhan-glow);
+            text-shadow: 0 0 10px var(--erhan-glow), 0 0 20px var(--erhan-glow), 0 0 40px #8a2be2;
+        }
+        .card-erhan:hover {
+            border-color: var(--erhan-glow);
+            box-shadow: 0 0 35px rgba(255, 0, 127, 0.4);
+        }
+
+        .glow-ahmet {
+            color: var(--ahmet-glow);
+            text-shadow: 0 0 10px var(--ahmet-glow), 0 0 20px var(--ahmet-glow), 0 0 40px #ff0000;
+        }
+        .card-ahmet:hover {
+            border-color: var(--ahmet-glow);
+            box-shadow: 0 0 35px rgba(255, 51, 51, 0.4);
+        }
+
+        .glow-kadri {
+            color: var(--kadri-glow);
+            text-shadow: 0 0 10px var(--kadri-glow), 0 0 20px var(--kadri-glow), 0 0 40px #009933;
+        }
+        .card-kadri:hover {
+            border-color: var(--kadri-glow);
+            box-shadow: 0 0 35px rgba(0, 255, 102, 0.4);
+        }
+
+        /* Avatar Çerçevesi */
+        .avatar-box {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            background: rgba(255,255,255,0.05);
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        /* Soundboard & Eğlence Butonları */
+        .btn-trap {
+            background: linear-gradient(45deg, #ff007f, #7928ca);
+            border: none;
+            color: #fff;
+            font-weight: 700;
+            padding: 12px 25px;
+            border-radius: 50px;
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.5);
+            transition: all 0.3s;
+        }
+
+        .btn-trap:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 25px rgba(255, 0, 127, 0.8);
+            color: #fff;
+        }
+
+        .sound-btn {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            border-radius: 12px;
+            padding: 15px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .sound-btn:hover {
+            background: rgba(255,255,255,0.25);
+            color: #00f3ff;
+            border-color: #00f3ff;
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
+        }
+
+        .stats-badge {
+            background: rgba(255,255,255,0.1);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin: 2px;
+            display: inline-block;
+        }
+
+        /* Günün Bossu Pop-up Animasyon */
+        .winner-card {
+            animation: pulseGlow 1s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            from { transform: scale(1); filter: brightness(1); }
+            to { transform: scale(1.05); filter: brightness(1.3); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Hero Section -->
+    <div class="container hero-section">
+        <span class="badge bg-danger text-uppercase px-3 py-2 mb-2 fs-6">🔥 TRAPBOSS 5.0 SQUAD 🔥</span>
+        <h1 class="main-title mb-3">TRAPBOSS 5.0</h1>
+        <p class="lead text-light opacity-75">Sokağın En Işıltılı Ekibi • Sınırsız Flex • Maximum Bass</p>
+
+        <!-- Eğlence Aksiyonları -->
+        <div class="mt-4 d-flex justify-content-center gap-3 flex-wrap">
+            <button class="btn btn-trap" onclick="selectDailyBoss()">
+                <i class="fa-solid font-awesome fa-crown me-2"></i>Günün Trap Boss'unu Seç!
+            </button>
+            <button class="btn btn-outline-info rounded-pill px-4" onclick="generateTrapLine()">
+                <i class="fa-solid fa-bolt me-2"></i>Rastgele Trap Sözü Patlat
+            </button>
+        </div>
+
+        <!-- Trap Sözü Ekranı -->
+        <div id="trapQuoteBox" class="mt-4 p-3 rounded-4 bg-dark border border-secondary text-warning d-none fw-bold fs-5">
+            <i class="fa-solid fa-quote-left me-2"></i><span id="trapQuoteText"></span><i class="fa-solid fa-quote-right ms-2"></i>
+        </div>
+    </div>
+
+    <!-- Işıltılı Kadro Kartları -->
+    <div class="container my-5">
+        <h2 class="text-center mb-5 text-uppercase" style="letter-spacing: 3px;">
+            <i class="fa-solid fa-users me-2 text-info"></i>EFSANEVİ KADRO
+        </h2>
+
+        <div class="row g-4 justify-content-center">
+            
+            <!-- ÖMER -->
+            <div class="col-lg-4 col-md-6">
+                <div class="boss-card card-omer text-center h-100" id="card-omer">
+                    <div class="avatar-box text-warning">
+                        <i class="fa-solid fa-compact-disc"></i>
+                    </div>
+                    <h2 class="glow-omer fw-black mb-1">ÖMER</h2>
+                    <p class="text-uppercase small text-secondary fw-bold">The Beatmaster & Trap King</p>
+                    <hr class="border-secondary">
+                    <p class="small text-light opacity-75">808 Bass ritimlerinin tek hakimi. Bütün ritimler onun parmaklarının ucunda şekillenir.</p>
+                    <div class="mt-3">
+                        <span class="stats-badge"><i class="fa-solid fa-fire text-danger me-1"></i>Aura: %99</span>
+                        <span class="stats-badge"><i class="fa-solid fa-sliders text-info me-1"></i>Bass: Maximum</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- YAVUZ -->
+            <div class="col-lg-4 col-md-6">
+                <div class="boss-card card-yavuz text-center h-100" id="card-yavuz">
+                    <div class="avatar-box text-info">
+                        <i class="fa-solid fa-gem"></i>
+                    </div>
+                    <h2 class="glow-yavuz fw-black mb-1">YAVUZ</h2>
+                    <p class="text-uppercase small text-secondary fw-bold">Heavy Flex & Style Boss</p>
+                    <hr class="border-secondary">
+                    <p class="small text-light opacity-75">Tarzı ve duruşuyla ortamı anında soğutan buz gibi neon parıltısı.</p>
+                    <div class="mt-3">
+                        <span class="stats-badge"><i class="fa-solid fa-bolt text-warning me-1"></i>Flex: 100/100</span>
+                        <span class="stats-badge"><i class="fa-solid fa-glasses text-success me-1"></i>Style: Premium</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ERHAN -->
+            <div class="col-lg-4 col-md-6">
+                <div class="boss-card card-erhan text-center h-100" id="card-erhan">
+                    <div class="avatar-box text-danger">
+                        <i class="fa-solid fa-microphone-lines"></i>
+                    </div>
+                    <h2 class="glow-erhan fw-black mb-1">ERHAN</h2>
+                    <p class="text-uppercase small text-secondary fw-bold">Flow Controller & Hype Master</p>
+                    <hr class="border-secondary">
+                    <p class="small text-light opacity-75">Hızlı rhyme'lar ve yüksek enerji. Sahneye çıktığı an bass patlaması garantili.</p>
+                    <div class="mt-3">
+                        <span class="stats-badge"><i class="fa-solid fa-gauge-high text-primary me-1"></i>Hız: 300 BPM</span>
+                        <span class="stats-badge"><i class="fa-solid fa-drum text-warning me-1"></i>Flow: Sınırsız</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AHMET -->
+            <div class="col-lg-4 col-md-6">
+                <div class="boss-card card-ahmet text-center h-100" id="card-ahmet">
+                    <div class="avatar-box text-danger">
+                        <i class="fa-solid fa-mask"></i>
+                    </div>
+                    <h2 class="glow-ahmet fw-black mb-1">AHMET</h2>
+                    <p class="text-uppercase small text-secondary fw-bold">Night Rider & Sound Designer</p>
+                    <hr class="border-secondary">
+                    <p class="small text-light opacity-75">Karanlık neon sokakların gizemli sesi. Synth'leri geceye yön verir.</p>
+                    <div class="mt-3">
+                        <span class="stats-badge"><i class="fa-solid fa-moon text-light me-1"></i>Vibe: Dark Trap</span>
+                        <span class="stats-badge"><i class="fa-solid fa-wave-square text-danger me-1"></i>Sound: Ultra 3D</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KADRİ -->
+            <div class="col-lg-4 col-md-6">
+                <div class="boss-card card-kadri text-center h-100" id="card-kadri">
+                    <div class="avatar-box text-success">
+                        <i class="fa-solid fa-skull"></i>
+                    </div>
+                    <h2 class="glow-kadri fw-black mb-1">KADRİ</h2>
+                    <p class="text-uppercase small text-secondary fw-bold">The Legend & Auto-Tune God</p>
+                    <hr class="border-secondary">
+                    <p class="small text-light opacity-75">Trap dünyasının efsanevi ismi. Onun vokalleri olmadan hiçbir parça tamamlanmaz.</p>
+                    <div class="mt-3">
+                        <span class="stats-badge"><i class="fa-solid fa-trophy text-warning me-1"></i>Statü: Legend</span>
+                        <span class="stats-badge"><i class="fa-solid fa-bullhorn text-info me-1"></i>Vokal: Melodik</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Etkileşimli Soundboard (Ses Efektleri) -->
+    <div class="container my-5">
+        <div class="p-4 rounded-4 bg-dark border border-secondary text-center">
+            <h3 class="mb-3 text-warning"><i class="fa-solid fa-music me-2"></i>TRAP SOUNDBOARD 5.0</h3>
+            <p class="small text-secondary mb-4">Butonlara basarak kendi synth ve bass efektlerini patlat!</p>
+            
+            <div class="row g-3 justify-content-center">
+                <div class="col-6 col-md-2">
+                    <button class="sound-btn w-100" onclick="playSound('808')">
+                        <i class="fa-solid fa-drum-steelpan d-block fs-4 mb-2"></i>808 BASS
+                    </button>
+                </div>
+                <div class="col-6 col-md-2">
+                    <button class="sound-btn w-100" onclick="playSound('horn')">
+                        <i class="fa-solid fa-bullhorn d-block fs-4 mb-2"></i>AIRHORN
+                    </button>
+                </div>
+                <div class="col-6 col-md-2">
+                    <button class="sound-btn w-100" onclick="playSound('hihat')">
+                        <i class="fa-solid fa-circle-dot d-block fs-4 mb-2"></i>HI-HAT ROLL
+                    </button>
+                </div>
+                <div class="col-6 col-md-2">
+                    <button class="sound-btn w-100" onclick="playSound('laser')">
+                        <i class="fa-solid fa-wand-magic-sparkles d-block fs-4 mb-2"></i>LASER FLEX
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center py-4 border-top border-secondary text-secondary small">
+        <p class="mb-0">TRAPBOSS 5.0 Edition • Ömer • Yavuz • Erhan • Ahmet • Kadri</p>
+        <p class="mt-1 opacity-50">Tüm hakları saklıdır. Eğlence amaçlı üretilmiştir. 🔥</p>
+    </footer>
+
+    <!-- Web Audio API & Etkileşim Scriptleri -->
+    <script>
+        // Ses Sentezleyici (Dışarıdan MP3 dosyası indirmeden doğrudan tarayıcı sesi üretir)
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+        function playSound(type) {
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+
+            const now = audioCtx.currentTime;
+
+            if (type === '808') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(160, now);
+                osc.frequency.exponentialRampToValueAtTime(35, now + 0.5);
+                gain.gain.setValueAtTime(1, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.6);
+                osc.start(now);
+                osc.stop(now + 0.6);
+            } else if (type === 'horn') {
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(450, now);
+                osc.frequency.setValueAtTime(600, now + 0.1);
+                gain.gain.setValueAtTime(0.5, now);
+                gain.gain.linearRampToValueAtTime(0.01, now + 0.4);
+                osc.start(now);
+                osc.stop(now + 0.4);
+            } else if (type === 'hihat') {
+                // Hi-Hat Simülasyonu
+                osc.type = 'square';
+                osc.frequency.setValueAtTime(8000, now);
+                gain.gain.setValueAtTime(0.2, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.08);
+                osc.start(now);
+                osc.stop(now + 0.08);
+            } else if (type === 'laser') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(1200, now);
+                osc.frequency.exponentialRampToValueAtTime(100, now + 0.3);
+                gain.gain.setValueAtTime(0.4, now);
+                gain.gain.linearRampToValueAtTime(0.01, now + 0.3);
+                osc.start(now);
+                osc.stop(now + 0.3);
+            }
+        }
+
+        // Günün Trap Boss'unu Seçici
+        const squad = [
+            { name: "ÖMER", id: "card-omer" },
+            { name: "YAVUZ", id: "card-yavuz" },
+            { name: "ERHAN", id: "card-erhan" },
+            { name: "AHMET", id: "card-ahmet" },
+            { name: "KADRİ", id: "card-kadri" }
+        ];
+
+        function selectDailyBoss() {
+            // Önceki seçim vurgularını temizle
+            squad.forEach(member => {
+                document.getElementById(member.id).classList.remove('winner-card');
+            });
+
+            // Rastgele seç
+            const randomIndex = Math.floor(Math.random() * squad.length);
+            const winner = squad[randomIndex];
+            const winnerElement = document.getElementById(winner.id);
+
+            winnerElement.classList.add('winner-card');
+            winnerElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            playSound('horn');
+            
+            alert(`🎉 BUGÜNÜN TRAP BOSS'U: ${winner.name}! Zirvenin sahibi belirlendi! 🔥`);
+        }
+
+        // Rastgele Trap / Flex Cümlesi Oluşturucu
+        const trapQuotes = [
+            "Ömer 808 bass'ı vurduğunda şehirdeki tüm ışıklar yanıp söner!",
+            "Yavuz flex yapmaya başladığında saatler durur, neonlar parlar.",
+            "Erhan flow değiştirdiğinde hıza yetişebilen henüz olmadı!",
+            "Ahmet gece modunu açtı, ritimler karanlıkta parlıyor.",
+            "Kadri mikrofona geçtiğinde Auto-Tune bile saygıyla eğilir!",
+            "TRAPBOSS 5.0 kadrosu ortamda; bass yüksek, aura maksimum!"
+        ];
+
+        function generateTrapLine() {
+            const quoteBox = document.getElementById('trapQuoteBox');
+            const quoteText = document.getElementById('trapQuoteText');
+            
+            const randomQuote = trapQuotes[Math.floor(Math.random() * trapQuotes.length)];
+            quoteText.innerText = randomQuote;
+            
+            quoteBox.classList.remove('d-none');
+            playSound('laser');
+        }
+    </script>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/script/bootstrap.bundle.min.js"></script>
+</body>
+</html>
